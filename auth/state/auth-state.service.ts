@@ -21,6 +21,7 @@ export class AuthStateService extends RxState<AuthState> {
   refreshToken$ = this.select('refreshToken');
   currentUser$ = this.select('user');
   isAuthorized$ = this.token$.pipe(map(Boolean));
+
   sideNavAuthInfo$ = combineLatest([
     this.currentUser$,
     this.select('checkAccountHideTransaction'),
